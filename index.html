@@ -74,6 +74,7 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
+    <!-- Pantalla de Inicio -->
     <div id="screen-start" class="dossier-card w-full max-w-lg rounded-xl p-8 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-blue-600"></div>
         <div class="absolute top-0 right-8 w-16 h-8 bg-blue-600 flex items-center justify-center rounded-b-lg shadow-md">
@@ -105,6 +106,7 @@
         </div>
     </div>
 
+    <!-- Pantalla del Examen -->
     <div id="screen-game" class="w-full max-w-2xl hidden-screen">
         <div class="flex justify-between items-center mb-4 text-blue-400 font-mono text-sm">
             <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 shadow">
@@ -137,6 +139,7 @@
         </div>
     </div>
 
+    <!-- Pantalla de Resultados -->
     <div id="screen-result" class="dossier-card w-full max-w-lg rounded-xl p-8 relative hidden-screen">
         <div class="absolute inset-0 border-8 border-double border-slate-200 m-2 rounded-lg pointer-events-none"></div>
         
@@ -172,6 +175,7 @@
         </div>
     </div>
 
+    <!-- Script de lógica (Asegúrate de copiar desde el inicio hasta el fin de la etiqueta html) -->
     <script>
         const questions = [
             { text: "¿Qué es un verbo?", options: ["Una palabra que expresa acciones, estados o procesos.", "Una palabra que nombra objetos.", "Una característica física."], correct: 0 },

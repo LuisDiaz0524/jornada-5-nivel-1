@@ -1,0 +1,30 @@
+                feedback.className = 'mt-4 text-sm font-semibold text-red-700';
+                feedback.innerText = '✘ Pista incorrecta. La respuesta correcta se muestra en verde.';
+            }
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function nextQuestion() {
+            if (state.selected === questions[state.currentIdx].correct) state.score++;
+            state.currentIdx++;
+            if (state.currentIdx < questions.length) loadQuestion();
+            else showResults();
+        }
+
+        function showResults() {
+            document.getElementById('screen-game').classList.add('hidden-screen');
+            document.getElementById('screen-result').classList.remove('hidden-screen');
+            document.getElementById('result-name').innerText = state.playerName;
+            document.getElementById('result-score').innerText = state.score;
+            
+            const stamp = document.getElementById('stamp-result');
+            if (state.score >= 9) stamp.innerText = "ESPECIALISTA";
+            else if (state.score >= 7) stamp.innerText = "INVESTIGADOR";
+            else stamp.innerText = "ASPIRANTE";
+        }
+    </script>
+</body>
+</html>

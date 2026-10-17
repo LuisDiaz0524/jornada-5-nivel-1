@@ -1,3 +1,580 @@
+
+Conversación con Gemini
+Quiero que me prepares un examen corto de 10 preguntas tomando como base este que hacia yo, quiero que sean 10 preguntas sencillas y regaladas
+
+I will now generate a short, easy 10-question quiz based on the provided materials about grammatical categories, verbs, modes, tenses, and verbal periphrasis.
+
+Cuestionario: El Verbo y sus Accidentes Gramaticales
+16 oct, 22:07
+He preparado un cuestionario muy accesible y directo sobre los verbos, modos, tiempos y perífrasis verbales, tal como lo solicitaste. ¡Es ideal para repasar los conceptos fundamentales de los documentos compartidos de una manera rápida y sencilla!
+
+Quiero el archivo HTML
+
+¡Tu archivo HTML con el examen interactivo está listo!
+
+Lo he diseñado tomando como base el estilo visual del "index_html.html" que compartiste (con la temática de la Agencia ASD), pero con las 10 preguntas adaptadas al tema de los verbos, modos, tiempos y perífrasis verbales, asegurándome de que sean sencillas y directas.
+
+Icono de HTML
+examen_verbos
+ HTML 
+¡Espero que sea de mucha utilidad para repasar el Nivel 1! Dime si necesitas algún ajuste en el código o las preguntas.
+
+me salio esto al crrerlo: feedback.className = 'mt-4 text-sm font-semibold text-red-700'; feedback.innerText = '✘ Pista incorrecta. La respuesta correcta se muestra en verde.'; } const nextBtn = document.getElementById('next-btn'); nextBtn.disabled = false; nextBtn.classList.remove('opacity-50', 'cursor-not-allowed'); } function nextQuestion() { if (state.selected === questions[state.currentIdx].correct) state.score++; state.currentIdx++; if (state.currentIdx < questions.length) loadQuestion(); else showResults(); } function showResults() { document.getElementById('screen-game').classList.add('hidden-screen'); document.getElementById('screen-result').classList.remove('hidden-screen'); document.getElementById('result-name').innerText = state.playerName; document.getElementById('result-score').innerText = state.score; const stamp = document.getElementById('stamp-result'); if (state.score >= 9) stamp.innerText = "ESPECIALISTA"; else if (state.score >= 7) stamp.innerText = "INVESTIGADOR"; else stamp.innerText = "ASPIRANTE"; }
+
+Ese error suele ocurrir cuando el navegador interpreta parte del código JavaScript como si fuera texto normal de la página. Casi siempre pasa porque, al copiar y pegar o al guardar el archivo, se borró accidentalmente un símbolo, una llave } o se rompió la etiqueta <script>.
+
+Para solucionarlo rápidamente, aquí tienes el código completo y limpio. Solo tienes que hacer clic en "Copiar código" (en la esquina superior derecha de este recuadro), pegarlo en tu bloc de notas o editor de código, y guardarlo como examen_verbos.html:
+
+HTML
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión ASD: El Verbo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #f8fafc;
+        }
+        
+        .typewriter-font {
+            font-family: 'Special Elite', monospace;
+        }
+
+        .dossier-card {
+            background-color: #fdfbf7;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            color: #1e293b;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stamp {
+            font-family: 'Special Elite', monospace;
+            color: #dc2626;
+            border: 4px solid #dc2626;
+            transform: rotate(-12deg);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            opacity: 0.85;
+            display: inline-block;
+        }
+
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .option-btn:hover {
+            transform: translateX(5px);
+            background-color: #f1f5f9;
+        }
+
+        .option-btn.selected {
+            background-color: #0284c7;
+            color: white;
+            border-color: #0369a1;
+        }
+
+        .option-btn.correct-answer {
+            background-color: #16a34a !important;
+            color: white;
+            border-color: #15803d !important;
+        }
+
+        .option-btn.wrong-answer {
+            background-color: #dc2626 !important;
+            color: white;
+            border-color: #b91c1c !important;
+        }
+
+        .hidden-screen {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Pantalla de Inicio -->
+    <div id="screen-start" class="dossier-card w-full max-w-lg rounded-xl p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-blue-600"></div>
+        <div class="absolute top-0 right-8 w-16 h-8 bg-blue-600 flex items-center justify-center rounded-b-lg shadow-md">
+            <i class="fas fa-search-nodes text-white text-xl"></i>
+        </div>
+        
+        <div class="text-center mt-6 mb-8">
+            <i class="fas fa-user-secret text-5xl text-slate-700 mb-4"></i>
+            <h1 class="text-3xl font-bold typewriter-font uppercase tracking-wider text-slate-800">Agencia ASD</h1>
+            <p class="text-slate-500 text-xs mt-1 uppercase font-semibold tracking-widest">Nivel 1 - División Gramatical</p>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-slate-100 p-4 rounded-lg border border-slate-200">
+                <p class="text-sm text-slate-700 mb-2 typewriter-font">
+                    <strong class="text-blue-700">MISIÓN: EL VERBO Y SUS MISTERIOS:</strong> Detective, su objetivo es identificar correctamente los verbos, sus tiempos, modos y perífrasis verbales en diferentes enunciados. Son 10 pruebas básicas.
+                </p>
+            </div>
+
+            <div>
+                <label for="playerName" class="block text-sm font-bold text-slate-700 mb-2 uppercase">Identificación del Agente:</label>
+                <input type="text" id="playerName" class="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-blue-600 focus:ring-0 outline-none transition-colors text-slate-800 font-medium" placeholder="Ingrese su nombre y apellido" autocomplete="off">
+                <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Debe identificarse para acceder al expediente.</p>
+            </div>
+
+            <button onclick="startGame()" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wide">
+                <i class="fas fa-fingerprint"></i> Acceder al Expediente
+            </button>
+        </div>
+    </div>
+
+    <!-- Pantalla del Examen -->
+    <div id="screen-game" class="w-full max-w-2xl hidden-screen">
+        <div class="flex justify-between items-center mb-4 text-blue-400 font-mono text-sm">
+            <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 shadow">
+                <i class="fas fa-id-badge"></i> <span id="display-name" class="uppercase font-bold">Agente</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 shadow">
+                <i class="fas fa-file-invoice"></i> Caso <span id="current-question-num">1</span>/10
+            </div>
+        </div>
+
+        <div class="dossier-card rounded-xl p-6 md:p-8 relative">
+            <div class="w-full bg-slate-200 rounded-full h-2.5 mb-6">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 10%"></div>
+            </div>
+
+            <div id="question-container" class="min-h-[260px]">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Análisis de Verbos</h2>
+                <p id="question-text" class="text-lg md:text-xl font-bold text-slate-800 mb-6 typewriter-font leading-relaxed"></p>
+
+                <div id="options-container" class="space-y-3"></div>
+
+                <p id="feedback-text" class="mt-4 text-sm font-semibold hidden"></p>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="next-btn" onclick="nextQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow transition-colors flex items-center gap-2 opacity-50 cursor-not-allowed" disabled>
+                    Confirmar Evidencia <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Resultados -->
+    <div id="screen-result" class="dossier-card w-full max-w-lg rounded-xl p-8 relative hidden-screen">
+        <div class="absolute inset-0 border-8 border-double border-slate-200 m-2 rounded-lg pointer-events-none"></div>
+        
+        <div class="text-center z-10 relative">
+            <i class="fas fa-medal text-6xl text-blue-600 mb-4"></i>
+            <h2 class="text-2xl font-bold uppercase text-slate-800 mb-2">Dictamen del Analista</h2>
+            <p class="text-slate-500 mb-6 typewriter-font">Módulo Nivel 1 - El Verbo, Modos y Perífrasis</p>
+            
+            <div class="bg-slate-100 p-6 rounded-lg border border-slate-200 mb-6 relative overflow-hidden">
+                <div id="stamp-result" class="absolute top-2 right-2 stamp text-xl font-bold opacity-30">PROCESADO</div>
+                
+                <div class="text-left space-y-4 relative z-10">
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Agente Especialista:</p>
+                    <p id="result-name" class="text-xl font-bold text-slate-800 typewriter-font border-b border-slate-300 pb-1"></p>
+                    
+                    <div class="flex justify-between items-end mt-4">
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Puntaje de Precisión:</p>
+                            <p class="text-5xl font-black text-slate-800 mt-1"><span id="result-score">0</span><span class="text-2xl text-slate-400">/10</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 text-blue-900 p-4 rounded-lg text-sm font-semibold mb-6 flex items-center gap-3">
+                <i class="fas fa-check-double text-2xl text-blue-600"></i>
+                <p class="text-left leading-snug">¡Caso cerrado! Su capacidad para identificar los verbos ha sido evaluada con éxito.</p>
+            </div>
+
+            <button onclick="location.reload()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-4 rounded-lg transition-colors text-sm uppercase tracking-wider">
+                <i class="fas fa-sync-alt mr-2"></i> Solicitar Reingreso
+            </button>
+        </div>
+    </div>
+
+    <!-- Script de lógica (Asegúrate de copiar desde el inicio hasta el fin de la etiqueta html) -->
+    <script>
+        const questions = [
+            { text: "¿Qué es un verbo?", options: ["Una palabra que expresa acciones, estados o procesos.", "Una palabra que nombra objetos.", "Una característica física."], correct: 0 },
+            { text: "En la oración 'Los científicos investigan nuevas vacunas', ¿en qué tiempo está el verbo 'investigan'?", options: ["Pasado", "Presente", "Futuro"], correct: 1 },
+            { text: "Si una acción ya ocurrió, el tiempo verbal es:", options: ["Pasado", "Presente", "Futuro"], correct: 0 },
+            { text: "¿Qué modo verbal se usa para expresar hechos reales o comprobables?", options: ["Modo subjuntivo", "Modo indicativo", "Modo imperativo"], correct: 1 },
+            { text: "Si un profesor dice 'Observe cuidadosamente la muestra', está usando el modo:", options: ["Indicativo", "Imperativo", "Subjuntivo"], correct: 1 },
+            { text: "El modo subjuntivo se utiliza para expresar:", options: ["Deseos, posibilidades o dudas.", "Órdenes o instrucciones.", "Hechos que ya ocurrieron."], correct: 0 },
+            { text: "¿Qué es una perífrasis verbal?", options: ["Un tipo de sustantivo abstracto.", "Dos o más verbos que funcionan como una sola unidad de significado.", "Una oración sin ningún verbo."], correct: 1 },
+            { text: "En 'Los investigadores están analizando las muestras', la perífrasis verbal es:", options: ["están analizando", "las muestras", "Los investigadores"], correct: 0 },
+            { text: "En la perífrasis 'están analizando', ¿en qué forma está el verbo principal 'analizando'?", options: ["Infinitivo", "Gerundio", "Participio"], correct: 1 },
+            { text: "En la oración 'Los especialistas publicarán los resultados', ¿en qué tiempo está el verbo?", options: ["Futuro", "Pasado", "Presente"], correct: 0 }
+        ];
+
+        let state = {
+            playerName: "",
+            currentIdx: 0,
+            score: 0,
+            selected: null
+        };
+
+        function startGame() {
+            const name = document.getElementById('playerName').value.trim();
+            if (!name) {
+                document.getElementById('nameError').classList.remove('hidden');
+                return;
+            }
+            state.playerName = name;
+            document.getElementById('display-name').innerText = name;
+            document.getElementById('screen-start').classList.add('hidden-screen');
+            document.getElementById('screen-game').classList.remove('hidden-screen');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[state.currentIdx];
+            state.selected = null;
+            document.getElementById('current-question-num').innerText = state.currentIdx + 1;
+            document.getElementById('progress-bar').style.width = `${((state.currentIdx + 1) / questions.length) * 100}%`;
+            document.getElementById('question-text').innerText = q.text;
+
+            const feedback = document.getElementById('feedback-text');
+            feedback.classList.add('hidden');
+            feedback.innerText = '';
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            q.options.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left px-5 py-4 rounded-lg border-2 border-slate-200 text-slate-700 font-medium bg-white flex items-center gap-3';
+                btn.innerHTML = `<span class="w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-slate-500 text-sm shrink-0">${i+1}</span> <span>${opt}</span>`;
+                btn.onclick = () => selectOption(i);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(i) {
+            state.selected = i;
+            const q = questions[state.currentIdx];
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach((b, idx) => {
+                b.classList.remove('selected', 'border-blue-600', 'correct-answer', 'wrong-answer');
+                b.onclick = null;
+                if (idx === q.correct) {
+                    b.classList.add('correct-answer');
+                } else if (idx === i) {
+                    b.classList.add('wrong-answer');
+                }
+            });
+
+            const feedback = document.getElementById('feedback-text');
+            feedback.classList.remove('hidden');
+            if (i === q.correct) {
+                feedback.className = 'mt-4 text-sm font-semibold text-green-700';
+                feedback.innerText = '✔ Evidencia correcta. Buen trabajo, detective.';
+            } else {
+                feedback.className = 'mt-4 text-sm font-semibold text-red-700';
+                feedback.innerText = '✘ Pista incorrecta. La respuesta correcta se muestra en verde.';
+            }
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function nextQuestion() {
+            if (state.selected === questions[state.currentIdx].correct) state.score++;
+            state.currentIdx++;
+            if (state.currentIdx < questions.length) loadQuestion();
+            else showResults();
+        }
+
+        function showResults() {
+            document.getElementById('screen-game').classList.add('hidden-screen');
+            document.getElementById('screen-result').classList.remove('hidden-screen');
+            document.getElementById('result-name').innerText = state.playerName;
+            document.getElementById('result-score').innerText = state.score;
+            
+            const stamp = document.getElementById('stamp-result');
+            if (state.score >= 9) stamp.innerText = "ESPECIALISTA";
+            else if (state.score >= 7) stamp.innerText = "INVESTIGADOR";
+            else stamp.innerText = "ASPIRANTE";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+Gemini es una IA y puede cometer errores.
+
+Diagnosing Code Execution
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión ASD: El Verbo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #f8fafc;
+        }
+        
+        .typewriter-font {
+            font-family: 'Special Elite', monospace;
+        }
+
+        .dossier-card {
+            background-color: #fdfbf7;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            color: #1e293b;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stamp {
+            font-family: 'Special Elite', monospace;
+            color: #dc2626;
+            border: 4px solid #dc2626;
+            transform: rotate(-12deg);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            opacity: 0.85;
+            display: inline-block;
+        }
+
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .option-btn:hover {
+            transform: translateX(5px);
+            background-color: #f1f5f9;
+        }
+
+        .option-btn.selected {
+            background-color: #0284c7;
+            color: white;
+            border-color: #0369a1;
+        }
+
+        .option-btn.correct-answer {
+            background-color: #16a34a !important;
+            color: white;
+            border-color: #15803d !important;
+        }
+
+        .option-btn.wrong-answer {
+            background-color: #dc2626 !important;
+            color: white;
+            border-color: #b91c1c !important;
+        }
+
+        .hidden-screen {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="screen-start" class="dossier-card w-full max-w-lg rounded-xl p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-blue-600"></div>
+        <div class="absolute top-0 right-8 w-16 h-8 bg-blue-600 flex items-center justify-center rounded-b-lg shadow-md">
+            <i class="fas fa-search-nodes text-white text-xl"></i>
+        </div>
+        
+        <div class="text-center mt-6 mb-8">
+            <i class="fas fa-user-secret text-5xl text-slate-700 mb-4"></i>
+            <h1 class="text-3xl font-bold typewriter-font uppercase tracking-wider text-slate-800">Agencia ASD</h1>
+            <p class="text-slate-500 text-xs mt-1 uppercase font-semibold tracking-widest">Nivel 1 - División Gramatical</p>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-slate-100 p-4 rounded-lg border border-slate-200">
+                <p class="text-sm text-slate-700 mb-2 typewriter-font">
+                    <strong class="text-blue-700">MISIÓN: EL VERBO Y SUS MISTERIOS:</strong> Detective, su objetivo es identificar correctamente los verbos, sus tiempos, modos y perífrasis verbales en diferentes enunciados. Son 10 pruebas básicas.
+                </p>
+            </div>
+
+            <div>
+                <label for="playerName" class="block text-sm font-bold text-slate-700 mb-2 uppercase">Identificación del Agente:</label>
+                <input type="text" id="playerName" class="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-blue-600 focus:ring-0 outline-none transition-colors text-slate-800 font-medium" placeholder="Ingrese su nombre y apellido" autocomplete="off">
+                <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Debe identificarse para acceder al expediente.</p>
+            </div>
+
+            <button onclick="startGame()" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wide">
+                <i class="fas fa-fingerprint"></i> Acceder al Expediente
+            </button>
+        </div>
+    </div>
+
+    <div id="screen-game" class="w-full max-w-2xl hidden-screen">
+        <div class="flex justify-between items-center mb-4 text-blue-400 font-mono text-sm">
+            <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 shadow">
+                <i class="fas fa-id-badge"></i> <span id="display-name" class="uppercase font-bold">Agente</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700 shadow">
+                <i class="fas fa-file-invoice"></i> Caso <span id="current-question-num">1</span>/10
+            </div>
+        </div>
+
+        <div class="dossier-card rounded-xl p-6 md:p-8 relative">
+            <div class="w-full bg-slate-200 rounded-full h-2.5 mb-6">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 10%"></div>
+            </div>
+
+            <div id="question-container" class="min-h-[260px]">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Análisis de Verbos</h2>
+                <p id="question-text" class="text-lg md:text-xl font-bold text-slate-800 mb-6 typewriter-font leading-relaxed"></p>
+
+                <div id="options-container" class="space-y-3"></div>
+
+                <p id="feedback-text" class="mt-4 text-sm font-semibold hidden"></p>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="next-btn" onclick="nextQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow transition-colors flex items-center gap-2 opacity-50 cursor-not-allowed" disabled>
+                    Confirmar Evidencia <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-result" class="dossier-card w-full max-w-lg rounded-xl p-8 relative hidden-screen">
+        <div class="absolute inset-0 border-8 border-double border-slate-200 m-2 rounded-lg pointer-events-none"></div>
+        
+        <div class="text-center z-10 relative">
+            <i class="fas fa-medal text-6xl text-blue-600 mb-4"></i>
+            <h2 class="text-2xl font-bold uppercase text-slate-800 mb-2">Dictamen del Analista</h2>
+            <p class="text-slate-500 mb-6 typewriter-font">Módulo Nivel 1 - El Verbo, Modos y Perífrasis</p>
+            
+            <div class="bg-slate-100 p-6 rounded-lg border border-slate-200 mb-6 relative overflow-hidden">
+                <div id="stamp-result" class="absolute top-2 right-2 stamp text-xl font-bold opacity-30">PROCESADO</div>
+                
+                <div class="text-left space-y-4 relative z-10">
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Agente Especialista:</p>
+                    <p id="result-name" class="text-xl font-bold text-slate-800 typewriter-font border-b border-slate-300 pb-1"></p>
+                    
+                    <div class="flex justify-between items-end mt-4">
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase font-bold tracking-wider">Puntaje de Precisión:</p>
+                            <p class="text-5xl font-black text-slate-800 mt-1"><span id="result-score">0</span><span class="text-2xl text-slate-400">/10</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 text-blue-900 p-4 rounded-lg text-sm font-semibold mb-6 flex items-center gap-3">
+                <i class="fas fa-check-double text-2xl text-blue-600"></i>
+                <p class="text-left leading-snug">¡Caso cerrado! Su capacidad para identificar los verbos ha sido evaluada con éxito.</p>
+            </div>
+
+            <button onclick="location.reload()" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-4 rounded-lg transition-colors text-sm uppercase tracking-wider">
+                <i class="fas fa-sync-alt mr-2"></i> Solicitar Reingreso
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { text: "¿Qué es un verbo?", options: ["Una palabra que expresa acciones, estados o procesos.", "Una palabra que nombra objetos.", "Una característica física."], correct: 0 },
+            { text: "En la oración 'Los científicos investigan nuevas vacunas', ¿en qué tiempo está el verbo 'investigan'?", options: ["Pasado", "Presente", "Futuro"], correct: 1 },
+            { text: "Si una acción ya ocurrió, el tiempo verbal es:", options: ["Pasado", "Presente", "Futuro"], correct: 0 },
+            { text: "¿Qué modo verbal se usa para expresar hechos reales o comprobables?", options: ["Modo subjuntivo", "Modo indicativo", "Modo imperativo"], correct: 1 },
+            { text: "Si un profesor dice 'Observe cuidadosamente la muestra', está usando el modo:", options: ["Indicativo", "Imperativo", "Subjuntivo"], correct: 1 },
+            { text: "El modo subjuntivo se utiliza para expresar:", options: ["Deseos, posibilidades o dudas.", "Órdenes o instrucciones.", "Hechos que ya ocurrieron."], correct: 0 },
+            { text: "¿Qué es una perífrasis verbal?", options: ["Un tipo de sustantivo abstracto.", "Dos o más verbos que funcionan como una sola unidad de significado.", "Una oración sin ningún verbo."], correct: 1 },
+            { text: "En 'Los investigadores están analizando las muestras', la perífrasis verbal es:", options: ["están analizando", "las muestras", "Los investigadores"], correct: 0 },
+            { text: "En la perífrasis 'están analizando', ¿en qué forma está el verbo principal 'analizando'?", options: ["Infinitivo", "Gerundio", "Participio"], correct: 1 },
+            { text: "En la oración 'Los especialistas publicarán los resultados', ¿en qué tiempo está el verbo?", options: ["Futuro", "Pasado", "Presente"], correct: 0 }
+        ];
+
+        let state = {
+            playerName: "",
+            currentIdx: 0,
+            score: 0,
+            selected: null
+        };
+
+        function startGame() {
+            const name = document.getElementById('playerName').value.trim();
+            if (!name) {
+                document.getElementById('nameError').classList.remove('hidden');
+                return;
+            }
+            state.playerName = name;
+            document.getElementById('display-name').innerText = name;
+            document.getElementById('screen-start').classList.add('hidden-screen');
+            document.getElementById('screen-game').classList.remove('hidden-screen');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[state.currentIdx];
+            state.selected = null;
+            document.getElementById('current-question-num').innerText = state.currentIdx + 1;
+            document.getElementById('progress-bar').style.width = `${((state.currentIdx + 1) / questions.length) * 100}%`;
+            document.getElementById('question-text').innerText = q.text;
+
+            const feedback = document.getElementById('feedback-text');
+            feedback.classList.add('hidden');
+            feedback.innerText = '';
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            q.options.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left px-5 py-4 rounded-lg border-2 border-slate-200 text-slate-700 font-medium bg-white flex items-center gap-3';
+                btn.innerHTML = `<span class="w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-slate-500 text-sm shrink-0">${i+1}</span> <span>${opt}</span>`;
+                btn.onclick = () => selectOption(i);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(i) {
+            state.selected = i;
+            const q = questions[state.currentIdx];
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach((b, idx) => {
+                b.classList.remove('selected', 'border-blue-600', 'correct-answer', 'wrong-answer');
+                b.onclick = null;
+                if (idx === q.correct) {
+                    b.classList.add('correct-answer');
+                } else if (idx === i) {
+                    b.classList.add('wrong-answer');
+                }
+            });
+
+            const feedback = document.getElementById('feedback-text');
+            feedback.classList.remove('hidden');
+            if (i === q.correct) {
+                feedback.className = 'mt-4 text-sm font-semibold text-green-700';
+                feedback.innerText = '✔ Evidencia correcta. Buen trabajo, detective.';
+            } else {
                 feedback.className = 'mt-4 text-sm font-semibold text-red-700';
                 feedback.innerText = '✘ Pista incorrecta. La respuesta correcta se muestra en verde.';
             }
